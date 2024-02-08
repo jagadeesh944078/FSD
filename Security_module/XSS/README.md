@@ -16,4 +16,13 @@
 -     document.getElementById("username").textContent = sanitizedName;
 -     OR
 -     document.getElementById("username").innerText = sanitizedName;
-- Escaping
+- **Escaping**
+- example
+-     const sanitizedName = name.replace(/</g, '&lt;'>).replace(/>/g, '&gt;');
+- **Using Library like React**
+- **Sanitize data: DOMPurify**
+- **CSP(Content Security Policy) Headers**
+  - 1.Allowed Sources
+  - 2.Script Nonces
+  - 3.Report-only mode
+- **Avoid using eval**
