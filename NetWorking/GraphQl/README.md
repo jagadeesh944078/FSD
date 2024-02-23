@@ -1,0 +1,6 @@
+- what is graphql
+- why graphql & benefits
+- Rest vs GraphQL
+- Building Block
+- Build GraphQl App
+- Calling GraphQl from App
