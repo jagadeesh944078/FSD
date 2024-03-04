@@ -1,9 +1,16 @@
 // Login.js
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import CryptoJS from "crypto-js";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../util/UserContext";
+
+const SECRET_KEY = "CJlbWFpbCI6ImF0dW55MEB";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const { isLoggedIn, setLoggedIn } = useContext(UserContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,11 +28,29 @@ const Login = () => {
       }),
     });
     const json = await data.json();
+
+    /* stroing in cookie here api not returing set-cookie that's why its not working */
+
     // document.cookie = `authToken=${json.token}; expires=${new Date(
     //   new Date().getTime() + 7 * 24 * 60 * 60 * 1000
     // ).toUTCString()}; path=/; HttpOnly; Secure; SameSite=None`;
     // console.log(document.cookie);
-    sessionStorage.setItem("token", json.token);
+
+    const encryptedToken = CryptoJS.AES.encrypt(
+      json.token,
+      SECRET_KEY
+    ).toString();
+
+    sessionStorage.setItem("token", encryptedToken);
+    setLoggedIn(true);
+    navigate("/home");
+
+    // const decryptedBytes = CryptoJS.AES.decrypt(
+    //   encryptedToken,
+    //   "CJlbWFpbCI6ImF0dW55MEB"
+    // );
+    // const decryptedToken = decryptedBytes.toString(CryptoJS.enc.Utf8);
+    // console.log(decryptedToken, "decryptedToken");
   };
 
   return (
