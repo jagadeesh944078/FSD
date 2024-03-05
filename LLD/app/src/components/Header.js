@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <header className="text-2xl font-bold bg-black p-4 mb-2 text-white flex">
+    <header className="font-bold bg-black p-4 mb-2 text-white flex text-xl">
       Memes Page
       <nav className="justify-between ml-10">
         <a href="/home">Home</a>
@@ -22,6 +22,9 @@ const Header = () => {
         <a href="/team">Team</a>
         <a href="/login" className="ml-5" onClick={() => handleClick(btnName)}>
           {btnName}
+        </a>
+        <a href="/accordian" className="ml-5">
+          Accordian
         </a>
       </nav>
       <select

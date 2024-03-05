@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { useState } from "react";
 import { UserContext } from "./util/UserContext";
 import Header from "./components/Header";
+import Accordian from "./components/Accordian";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -24,6 +25,7 @@ function App() {
               <Route path="/about" element={<About lang={lang} />}></Route>
               <Route path="/team" element={<Team />}></Route>
               <Route path="/home" element={<Body />}></Route>
+              <Route path="/accordian" element={<Accordian />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>
