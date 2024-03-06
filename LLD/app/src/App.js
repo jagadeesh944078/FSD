@@ -1,7 +1,7 @@
 import "./App.css";
 import About from "./components/About";
 import Body from "./components/Body";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Team from "./components/Team";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -9,6 +9,7 @@ import { useState } from "react";
 import { UserContext } from "./util/UserContext";
 import Header from "./components/Header";
 import Accordian from "./components/Accordian";
+import Comments from "./components/comments/Comments";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -19,13 +20,14 @@ function App() {
         <Header />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login />}></Route>
-            <Route path="/login" element={<Login />}></Route>
+            <Route index element={<Navigate replace to="/login" />}></Route>
+            <Route path="/login" element={<Login />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/about" element={<About lang={lang} />}></Route>
               <Route path="/team" element={<Team />}></Route>
               <Route path="/home" element={<Body />}></Route>
               <Route path="/accordian" element={<Accordian />}></Route>
+              <Route path="/comments" element={<Comments />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>

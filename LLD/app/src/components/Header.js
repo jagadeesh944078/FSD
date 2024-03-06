@@ -26,6 +26,9 @@ const Header = () => {
         <a href="/accordian" className="ml-5">
           Accordian
         </a>
+        <a href="/comments" className="ml-5">
+          NestedComments
+        </a>
       </nav>
       <select
         className="ml-4 bg-black border border-white"
