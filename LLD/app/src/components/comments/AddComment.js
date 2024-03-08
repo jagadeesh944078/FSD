@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 
-const AddComment = ({ onAdd }) => {
-  const [comment, setComment] = useState("");
+const AddComment = ({
+  onAdd,
+  onEdit,
+  onClose,
+  defaultText,
+  showCancel,
+  commentId,
+}) => {
+  const [comment, setComment] = useState(defaultText);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(comment);
-    onAdd(comment);
+    onAdd && onAdd(comment);
+    onEdit && onEdit(commentId, comment);
+    onClose();
     setComment("");
   };
 
@@ -26,6 +34,14 @@ const AddComment = ({ onAdd }) => {
         >
           Comment
         </button>
+        {showCancel && (
+          <button
+            onClick={onClose}
+            className={`text-sm text-purple-100 px-4 h-9 rounded ml-2 bg-gray-600`}
+          >
+            Cancel
+          </button>
+        )}
       </form>
     </div>
   );
