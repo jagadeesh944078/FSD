@@ -133,7 +133,6 @@ const Comments = () => {
         }
       });
     };
-
     findEdit(clonedComments, commentId);
     setCommentData(clonedComments);
     sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(clonedComments));
