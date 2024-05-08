@@ -10,6 +10,7 @@ import { UserContext } from "./util/UserContext";
 import Header from "./components/Header";
 import Accordian from "./components/Accordian";
 import Comments from "./components/comments/Comments";
+import ImageSlider from "./components/image-slider/ImageSlider";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -28,6 +29,7 @@ function App() {
               <Route path="/home" element={<Body />}></Route>
               <Route path="/accordian" element={<Accordian />}></Route>
               <Route path="/comments" element={<Comments />}></Route>
+              <Route path="/image-slider" element={<ImageSlider />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>
