@@ -23,6 +23,9 @@ const Header = () => {
         <a href="/image-slider" className="ml-5">
           ImageSlider
         </a>
+        <a href="/pagination" className="ml-5">
+          Pagination
+        </a>
         <a href="/login" className="ml-5" onClick={() => handleClick(btnName)}>
           {btnName}
         </a>

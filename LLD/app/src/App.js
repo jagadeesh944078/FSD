@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import Accordian from "./components/Accordian";
 import Comments from "./components/comments/Comments";
 import ImageSlider from "./components/image-slider/ImageSlider";
+import Pagination from "./components/pagination/Pagination";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -30,6 +31,7 @@ function App() {
               <Route path="/accordian" element={<Accordian />}></Route>
               <Route path="/comments" element={<Comments />}></Route>
               <Route path="/image-slider" element={<ImageSlider />}></Route>
+              <Route path="/pagination" element={<Pagination />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>
