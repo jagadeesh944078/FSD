@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <header className="font-bold bg-black p-4 mb-2 text-white flex text-xl">
+    <header className="font-bold bg-black p-4 mb-2 text-white flex text-l">
       Memes Page
       <nav className="justify-between ml-10">
         <a href="/home">Home</a>
@@ -34,6 +34,9 @@ const Header = () => {
         </a>
         <a href="/comments" className="ml-5">
           NestedComments
+        </a>
+        <a href="/search-ui" className="ml-5">
+          SearchUi
         </a>
       </nav>
       <select
