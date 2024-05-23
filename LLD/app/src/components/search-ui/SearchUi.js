@@ -4,6 +4,7 @@ const SearchUi = () => {
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isResultVisible, setIsResultVisible] = useState(false);
+  const [cache, setCache] = useState({});
 
   useEffect(() => {
     // Debouncing
@@ -14,10 +15,17 @@ const SearchUi = () => {
   }, [searchText]);
 
   const fetchData = async () => {
+    // if cache has data send data from here
+    if (cache[searchText]) {
+      setSearchResults(cache[searchText]);
+      return;
+    }
+    //if cache doesn't have data return from here
     const data = await fetch(
       "https://www.google.com/complete/search?client=firefox&&q=" + searchText
     );
     const json = await data.json();
+    cache[searchText] = json[1];
     setSearchResults(json[1]);
   };
 
