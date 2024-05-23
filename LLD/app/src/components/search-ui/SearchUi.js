@@ -6,7 +6,11 @@ const SearchUi = () => {
   const [isResultVisible, setIsResultVisible] = useState(false);
 
   useEffect(() => {
-    fetchData();
+    // Debouncing
+    const s = setTimeout(() => {
+      fetchData();
+    }, 200);
+    return () => clearTimeout(s);
   }, [searchText]);
 
   const fetchData = async () => {
