@@ -13,6 +13,8 @@ import Comments from "./components/comments/Comments";
 import ImageSlider from "./components/image-slider/ImageSlider";
 import Pagination from "./components/pagination/Pagination";
 import SearchUi from "./components/search-ui/SearchUi";
+import PrivateRoute from "./PrivateRoute";
+import Unauthorized from "./components/Unauthorized";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -25,11 +27,14 @@ function App() {
           <Routes>
             <Route index element={<Navigate replace to="/login" />}></Route>
             <Route path="/login" element={<Login />} />
+            <Route path="/unauthorized" element={<Unauthorized />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/about" element={<About lang={lang} />}></Route>
               <Route path="/team" element={<Team />}></Route>
               <Route path="/home" element={<Body />}></Route>
-              <Route path="/accordian" element={<Accordian />}></Route>
+              <Route element={<PrivateRoute roles={["admin"]} />}>
+                <Route path="/accordian" element={<Accordian />}></Route>
+              </Route>
               <Route path="/comments" element={<Comments />}></Route>
               <Route path="/image-slider" element={<ImageSlider />}></Route>
               <Route path="/pagination" element={<Pagination />}></Route>
