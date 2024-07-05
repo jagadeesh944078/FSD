@@ -11,7 +11,7 @@
 - service worker sitting in between and it takes that network call and it can take decision based on that whether i want to fetch it from server or from the cache like what should i do with that network request so it act as proxy server and intercept it
 - **service worker only work on https only why?**
 - service workers act as proxy server and it intercepting network request that means it can perform man in the middle attack. there can be man in the middle attack that can be perfromed. that is the reason allowed by the browser on the https only
-- that is reason in firefox incoginatio mode you can access service workers because of the seuerity reasons
+- that is reason in firefox incoginatio mode you can not access service workers because of the seuerity reasons
 - service workers works only speicific browsers on specific operating systems and there are so many mobile phone might not work service workers and there are so many browsers service workers might not work
 - so service workers also have little bit of compatability issues but all the modern browsers supports the service workers
 - **They will also allow access to push notifications and background sync apis**
